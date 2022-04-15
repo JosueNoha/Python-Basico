@@ -6,7 +6,7 @@ import random
 
 def choose_word(vocab):
     # elige una palabra al azar del diccionario
-    i = random.randint(0, len(vocab.keys()))
+    i = random.randint(0, len(vocab.keys()))-1
     word = list(vocab.keys())[i]
     return word
 
@@ -74,7 +74,7 @@ vocavulary = {
     'tore' : 'razgar, quebrar',
     'nuzzle' : 'hocicar (acariciar con el hocico)',
     'whimpery' : 'lloriqueo',
-    'hugged' : 'abrazodo (hug)',
+    'hugged' : 'abrazado (hug)',
     'cheek' : 'mejilla',
     'frown' : 'fruncir el seño',
     'crunched' : 'triturado (crunch)',
@@ -99,7 +99,7 @@ vocavulary = {
     'neglect' : 'descuido',
     'despite' : 'a pesar de',
     'gather' : 'recolectar',
-    'clatter' : 'estrépido',
+    'clatter' : 'estrépito',
     'swung' : 'balanceado',
     'kneel' : 'arrodillarse',
     'crawled' : 'rebajado, rastreado, arrastrado',
@@ -110,7 +110,16 @@ vocavulary = {
 
 if __name__ == '__main__':
     answer = choose_word(vocavulary)
+    
     word_1 = choose_word(vocavulary)
+
+    while word_1 == answer:
+        word_1 = choose_word(vocavulary)
+
     word_2 = choose_word(vocavulary)
+
+    while word_2 == answer or word_2 ==word_1:
+        word_2 = choose_word(vocavulary)
+
     order = order_words()
     print_words(answer,word_1,word_2,order)
